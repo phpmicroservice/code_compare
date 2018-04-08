@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h1>欢迎使用</h1>
-    <div id="d1"></div>
+  <div class="check">
+      <router-view></router-view>
   </div>
 </template>
 
@@ -10,6 +9,11 @@ import fs from "fs";
 import path from "path";
 export default {
   name: "landing-page",
+  data(){
+      return {
+          dir:[]
+      }
+  },
   methods: {
     open(link) {
       this.$electron.shell.openExternal(link);
@@ -17,12 +21,7 @@ export default {
     start_file(file){
         fs.readFile(file, (err, fd) =>{
           console.log('17',fd.toString().split(/\r?\n/ig));
-        });
-
-        //String.split(/\r?\n/ig)
-    
-    
-    
+        });       
     },
     start_dir(dir){
       fs.readdir(dir,(err,files)=>{
@@ -59,26 +58,23 @@ export default {
     }
   },
   created() {
-    window.addEventListener("drop", (e)=> {
-      e.preventDefault();
-      e.stopPropagation();
-      for (let f of e.dataTransfer.files) {
-        this.start(f.path);
-        console.log("File(s) you dragged here: ", f.path);
-      }
-    });
-    window.addEventListener("dragover", function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    });
+    // this.$router.push('/check_dir');
+    // window.addEventListener("drop", (e)=> {
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   for (let f of e.dataTransfer.files) {
+    //     this.start(f.path);
+    //     console.log("File(s) you dragged here: ", f.path);
+    //   }
+    // });
+    // window.addEventListener("dragover", function(e) {
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    // });
   }
 };
 </script>
 
-<style>
-#d1 {
-  width: 500px;
-  height: 500px;
-  background: red;
-}
+<style scoped lang="less">
+    
 </style>

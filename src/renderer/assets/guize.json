@@ -1,0 +1,11 @@
+{
+    "dir":[
+        "D:\\www",
+        "D:\\www1"
+    ],
+    "exclude":[
+        ".git",
+        "node_module",
+        "readme.md"
+    ]
+}
