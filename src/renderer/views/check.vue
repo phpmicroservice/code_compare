@@ -58,19 +58,7 @@ export default {
     }
   },
   created() {
-    // this.$router.push('/check_dir');
-    // window.addEventListener("drop", (e)=> {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   for (let f of e.dataTransfer.files) {
-    //     this.start(f.path);
-    //     console.log("File(s) you dragged here: ", f.path);
-    //   }
-    // });
-    // window.addEventListener("dragover", function(e) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    // });
+
   }
 };
 </script>
